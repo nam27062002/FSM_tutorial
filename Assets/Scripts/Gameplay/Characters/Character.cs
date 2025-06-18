@@ -7,18 +7,25 @@ public abstract class Character : MonoBehaviour, IDamageable, IMoveable
     [field: SerializeField] public Rigidbody2D Rb { get; set; }
     [field: SerializeField] public EFacing Facing { get; set; } = EFacing.Right;
     public float CurrentHealth { get; set; }
-    
     protected CharacterStateMachine CharacterStateMachine;
 
     public void Awake()
     {
         Initialize();
     }
+
+    public void Start()
+    {
+        StartInternal();
+    }
+    
+    protected virtual void StartInternal(){}
+    
     protected abstract void Initialize();
     
     public void Update()
     {
-        CharacterStateMachine.Update();
+        UpdateInternal();
     }
 
     public void FixedUpdate()
@@ -26,6 +33,10 @@ public abstract class Character : MonoBehaviour, IDamageable, IMoveable
         CharacterStateMachine.FixedUpdate();
     }
 
+    protected virtual void UpdateInternal()
+    {
+        CharacterStateMachine.Update();
+    }
 
     public void TakeDamage(float damage)
     {
