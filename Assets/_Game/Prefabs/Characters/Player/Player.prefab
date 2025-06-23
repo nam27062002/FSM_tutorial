@@ -198,5 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+  <Speed>k__BackingField: 5
   <Rb>k__BackingField: {fileID: 8515775164216286468}
   <Facing>k__BackingField: 2

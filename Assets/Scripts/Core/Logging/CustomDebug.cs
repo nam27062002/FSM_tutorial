@@ -1,5 +1,5 @@
-﻿#if UNITY_EDITOR
-#define USE_CUSTOM_LOG
+﻿#if UNITY_EDITOR || DEVELOPMENT_BUILD
+#define USE_CUSTOM_DEBUG
 #endif
 
 using System;
@@ -66,7 +66,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void Log(UserRole roles, LogCategory category, string message, Object context = null)
         {
             InternalLog(roles, category, LogSeverity.Info, message, context, LogFlags.None);
@@ -78,7 +78,7 @@ namespace Core
         /// <param name="roles">The user roles this message is relevant to</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void Log(UserRole roles, string message, Object context = null)
         {
             Log(roles, LogCategory.None, message, context);
@@ -90,7 +90,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void Log(LogCategory category, string message, Object context = null)
         {
             Log(UserRole.All, category, message, context);
@@ -101,7 +101,7 @@ namespace Core
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void Log(string message, Object context = null)
         {
             Log(UserRole.All, LogCategory.None, message, context);
@@ -114,7 +114,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogWarning(UserRole roles, LogCategory category, string message, Object context = null)
         {
             InternalLog(roles, category, LogSeverity.Warning, message, context, LogFlags.None);
@@ -126,7 +126,7 @@ namespace Core
         /// <param name="roles">The user roles this message is relevant to</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogWarning(UserRole roles, string message, Object context = null)
         {
             LogWarning(roles, LogCategory.None, message, context);
@@ -138,7 +138,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogWarning(LogCategory category, string message, Object context = null)
         {
             LogWarning(UserRole.All, category, message, context);
@@ -149,7 +149,7 @@ namespace Core
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogWarning(string message, Object context = null)
         {
             LogWarning(UserRole.All, LogCategory.None, message, context);
@@ -162,7 +162,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogError(UserRole roles, LogCategory category, string message, Object context = null)
         {
             InternalLog(roles, category, LogSeverity.Error, message, context, LogFlags.None);
@@ -174,7 +174,7 @@ namespace Core
         /// <param name="roles">The user roles this message is relevant to</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogError(UserRole roles, string message, Object context = null)
         {
             LogError(roles, LogCategory.None, message, context);
@@ -186,7 +186,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogError(LogCategory category, string message, Object context = null)
         {
             LogError(UserRole.All, category, message, context);
@@ -197,7 +197,7 @@ namespace Core
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogError(string message, Object context = null)
         {
             LogError(UserRole.All, LogCategory.None, message, context);
@@ -210,7 +210,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogDataError(UserRole roles, LogCategory category, string message, Object context = null)
         {
             InternalLog(roles, category, LogSeverity.Error, message, context, LogFlags.DataError);
@@ -223,7 +223,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogDataWarning(UserRole roles, LogCategory category, string message, Object context = null)
         {
             InternalLog(roles, category, LogSeverity.Warning, message, context, LogFlags.DataError);
@@ -235,7 +235,7 @@ namespace Core
         /// <param name="roles">The user roles this message is relevant to</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogDataError(UserRole roles, string message, Object context = null)
         {
             LogDataError(roles, LogCategory.None, message, context);
@@ -247,7 +247,7 @@ namespace Core
         /// <param name="category">The category of the log message</param>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogDataError(LogCategory category, string message, Object context = null)
         {
             LogDataError(UserRole.All, category, message, context);
@@ -258,7 +258,7 @@ namespace Core
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogDataError(string message, Object context = null)
         {
             LogDataError(UserRole.All, LogCategory.None, message, context);
@@ -268,7 +268,7 @@ namespace Core
         /// Logs an exception and triggers the crash reporting system.
         /// </summary>
         /// <param name="exception">The exception to log</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void LogException(Exception exception)
         {
             CrashReport.TriggerException(exception);
@@ -280,11 +280,11 @@ namespace Core
         /// falling back to alternative logging systems if available.
         /// </summary>
         /// <param name="message">The message to log</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         [Conditional("USE_ALKAWALOGGER")]
         public static void LogFinal(string message)
         {
-#if USE_CUSTOM_LOG  // Primary logging system
+#if USE_CUSTOM_DEBUG  // Primary logging system
             Log(message);
 #elif USE_ALKAWALOGGER  // Fallback logging system
             AlkawaLogger.Log(message);
@@ -301,7 +301,7 @@ namespace Core
         /// <param name="message">The message to log</param>
         /// <param name="context">Optional Unity object context</param>
         /// <param name="flags">Additional flags for the log message</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         private static void InternalLog(UserRole roles, LogCategory category, LogSeverity severity, string message, Object context, LogFlags flags)
         {
             string formattedMessage = $"{(flags != LogFlags.None ? $"[{flags}] " : "")}{(category != LogCategory.None ? $"[{category}] " : "")}{message}";
@@ -327,10 +327,10 @@ namespace Core
         /// </summary>
         /// <param name="severity">The severity level of the message</param>
         /// <param name="message">The formatted message to log to file</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         private static void LogToFile(LogSeverity severity, string message)
         {
-#if UNITY_EDITOR && USE_CUSTOM_LOG
+#if UNITY_EDITOR && USE_CUSTOM_DEBUG
             if (fileDestinations.Count == 0)
                 return;
 
@@ -348,7 +348,7 @@ namespace Core
 #endif
         }
 
-#if USE_CUSTOM_LOG
+#if USE_CUSTOM_DEBUG
         /// <summary>
         /// Stack of log file destinations.
         /// </summary>
@@ -358,7 +358,7 @@ namespace Core
         /// Adds a new file destination for log output.
         /// </summary>
         /// <param name="destination">Path to the log file</param>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void PushFileOutput(string destination)
         {
             if (string.IsNullOrEmpty(destination))
@@ -368,7 +368,7 @@ namespace Core
             }
 
             // Ensure the directory exists
-            string directory = Path.GetDirectoryName(destination);
+            var directory = Path.GetDirectoryName(destination);
             if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
             {
                 try
@@ -388,7 +388,7 @@ namespace Core
         /// <summary>
         /// Removes the most recently added file destination from the stack.
         /// </summary>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void PopFileOutput()
         {
             if (fileDestinations.Count > 0)
@@ -404,11 +404,11 @@ namespace Core
         /// <summary>
         /// Clears all file destinations.
         /// </summary>
-        [Conditional("USE_CUSTOM_LOG")]
+        [Conditional("USE_CUSTOM_DEBUG")]
         public static void ClearFileOutputs()
         {
             fileDestinations.Clear();
         }
-#endif //USE_CUSTOM_LOG
+#endif //USE_CUSTOM_DEBUG
     }
 }
